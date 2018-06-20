@@ -1,7 +1,9 @@
+import throttle from 'lodash/throttle'
+
 const { PI: pi } = Math
 
-const canvas = document.getElementsByTagName('canvas')[0]
-const context = canvas.getContext('2d')
+let canvas = document.getElementsByTagName('canvas')[0]
+let context = canvas.getContext('2d')
 
 export default {
   circle ({ x, y, radius = 0.5 }) {
@@ -26,7 +28,20 @@ export default {
   }
 }
 
-export const canvasDimensions = {
+export const canvasDimensions = () => ({
   width: canvas.width,
   height: canvas.height
+})
+
+function onResize () {
+  canvas = document.getElementsByTagName('canvas')[0]
+
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight - 60
+
+  context = canvas.getContext('2d')
 }
+
+window.addEventListener('resize', throttle(onResize, 50))
+
+onResize()

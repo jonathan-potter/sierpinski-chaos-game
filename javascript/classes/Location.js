@@ -2,7 +2,6 @@ import { canvasDimensions } from 'classes/Draw'
 import { randomVelocity } from 'classes/Vector'
 
 const { random } = Math
-const { width: canvasWidth, height: canvasHeight } = canvasDimensions
 
 export default class Location {
   constructor ({ x = 0, y = 0, velocity }) {
@@ -22,6 +21,7 @@ export default class Location {
   }
 
   bounce () {
+    const { width: canvasWidth, height: canvasHeight } = canvasDimensions()
     const dimension = this.outOfBoundsDimension()
 
     if (dimension === '-x') {
@@ -37,7 +37,7 @@ export default class Location {
       this.velocity.x = -this.velocity.x
     }
     if (dimension === 'y') {
-      this.y = 2 * canvasWidth - this.y
+      this.y = 2 * canvasHeight - this.y
       this.velocity.y = -this.velocity.y
     }
   }
@@ -48,6 +48,7 @@ export default class Location {
   }
 
   outOfBoundsDimension () {
+    const { width: canvasWidth, height: canvasHeight } = canvasDimensions()
     const { x, y } = this
 
     if (x < 0) { return '-x' }
@@ -57,6 +58,8 @@ export default class Location {
   }
 
   static random () {
+    const { width: canvasWidth, height: canvasHeight } = canvasDimensions()
+
     const x = canvasWidth * random()
     const y = canvasHeight * random()
     const velocity = randomVelocity(5)
