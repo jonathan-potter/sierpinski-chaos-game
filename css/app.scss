@@ -1,0 +1,49 @@
+* {
+  transition: 0.2s;
+}
+
+html, body, ul, li, menu, label, button, select, input {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  list-style: none;
+  text-align: left;
+
+  font-weight: lighter;
+  font-size: inherit;
+  font-family: HelveticaNeue, arial, sans-serif;
+}
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  background-color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  float: left;
+}
+
+.canvas-container {
+  width: 500px;
+  max-width: 80%;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}

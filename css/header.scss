@@ -1,0 +1,70 @@
+/* originally written for Random Boggle Solver: http://jonathan-potter.github.io/boggle */
+
+/* HEADER */
+.page-header {
+  flex-basis: 60px;
+  flex-shrink: 0;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+  text-align: left;
+  color: black;
+  text-transform: uppercase;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.page-header * {
+  text-decoration: none;
+  color: inherit;
+}
+
+heading {
+  display: inline;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+nav {
+  float: right;
+}
+
+nav > ul {
+  height: inherit;
+}
+
+nav > ul > li {
+  display: block;
+  font-size: 20px;
+  float: left;
+  height: inherit;
+}
+
+.header-icon {
+  position: relative;
+  top: -8px;
+}
+
+.header-block-button {
+  display: block;
+  float: left;
+
+  height: 0;
+  line-height: 0;
+
+  border: 0;
+
+  padding: 30px 5px;
+}
+
+.reset-button {
+  line-height: 0; /* huge bandaid */;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 550px) {
+  .reset-button {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
